@@ -1,0 +1,32 @@
+.row{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+
+}
+.content{
+    padding-top: 10px;
+    size: 50%;
+}
+mat-form-field{
+    width: 100%;
+}
+mat-dilaog-actions{
+    padding: 0px 25px 20px;
+}
+
+.skill-input {
+    display: flex;
+    align-items: center;
+  }
+  
+  .skill-input input {
+    flex: 1;
+    margin-right: 8px; /* Adjust the spacing between the icon and the input as needed */
+  }
+
+  .formGroupName
+  {
+    display: flow-root;
+    flex-direction: row;
+  }

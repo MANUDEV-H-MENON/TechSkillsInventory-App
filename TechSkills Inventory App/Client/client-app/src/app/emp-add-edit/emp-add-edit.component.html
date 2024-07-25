@@ -1,0 +1,93 @@
+<div mat-dialog-title>Employee Form</div>
+<!-- <form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content class="content">
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="Name">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Designation</mat-label>
+            <input matInput formControlName="Designation">
+          </mat-form-field>
+          <mat-form-field *ngFor="let skill of skills; let i = index" appearance="outline" class="skill-input">
+            <input matInput type="text" placeholder="Skill {{ i + 1 }}" formControlName="skill">
+            <button mat-icon-button color="warn" (click)="removeSkill(i)">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="addSkill()">Add Skill</button>
+    </div>
+   
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button>Cancel</button>
+    <button mat-raised-button color="primary" type="submit" (ngSubmit)="onFormSubmit()">Save</button>
+</div>
+</form> -->
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+  <!-- <div> -->
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput id="name" formControlName="name">
+    </mat-form-field>
+    <!-- <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name"> -->
+    <!-- <div *ngIf="employeeForm.controls.name.invalid && employeeForm.controls.name.touched">
+      Name is required.
+    </div> -->
+  <!-- </div> -->
+
+  <!-- <div>
+    <label for="designation">Designation:</label>
+    <input type="text" id="designation" formControlName="designation"> -->
+    <!-- <div *ngIf="employeeForm.controls.designation.invalid && employeeForm.controls.designation.touched">
+      Designation is required.
+    </div> -->
+  <!-- </div> -->
+  <mat-form-field appearance="outline">
+    <mat-label>Designation</mat-label>
+    <input matInput id="designation" formControlName="designation">
+  </mat-form-field>
+
+  <h3>Skills:</h3>
+  <div formArrayName="techstack">
+    <div *ngFor="let skillGroup of techstack.controls; let i = index">
+      <mat-form-field [formGroupName]="i" class="formGroupName">
+        <!-- <div> -->
+          <mat-label>Skill:</mat-label>
+          <input matInput type="text" id="skill" formControlName="skill">
+          <!-- <div *ngIf="skillGroup.controls.skill.invalid && skillGroup.controls.skill.touched">
+            Skill is required.
+          </div> -->
+        <!-- </div> -->
+
+        <!-- <div> -->
+          <mat-label>Rate</mat-label>
+          <input matInput type="number" id="rate" formControlName="rate">
+          <mat-icon color="warn" (click)="removeSkill(i)">close</mat-icon>
+          <!-- <div *ngIf="skillGroup.controls.rate.invalid && skillGroup.controls.rate.touched">
+            Rate is required.
+          </div> -->
+        <!-- </div> -->
+       
+        <!-- <button mat-icon-button color="warn" (click)="removeSkill(i)">
+        </button> -->
+        <!-- <button type="button" (click)="removeSkill(i)">Remove Skill</button> -->
+      </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <button mat-raised-button type="button" color="primary" (click)="addSkill()">Add Skill</button>
+
+  <!-- <button type="submit" [disabled]="employeeForm.invalid">Submit</button> -->
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="false">Cancel</button>
+  <button mat-raised-button color="primary" type="submit" >{{data ? 'Update' : 'Save'}}</button>
+</div>
+</form>
+

@@ -1,0 +1,33 @@
+[
+    {
+      "name": "Manudev",
+      "designation": "Senior Design & Development Engineer",
+      "techstack": [
+        { "skill": ".NET", "rate": 9 },
+        { "skill": "Angular", "rate": 8 }
+      ]
+    },
+    {
+      "name": "Ameet",
+      "designation": "Design & Development Engineer",
+      "techstack": [
+        { "skill": "Node js", "rate": 9 }
+      ]
+    },
+    {
+      "name": "Eashwar",
+      "designation": "Manager",
+      "techstack": [
+        { "skill": "Management", "rate": 7 }
+      ]
+    },
+    {
+      "name": "Sasi",
+      "designation": "AR",
+      "techstack": [
+        { "skill": ".NET", "rate": 9 },
+        { "skill": "Angular", "rate": 8 },
+        { "skill": "Node js", "rate": 6 }
+      ]
+    }
+]

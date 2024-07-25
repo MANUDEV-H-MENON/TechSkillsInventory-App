@@ -1,0 +1,116 @@
+<!-- <p>
+  <mat-toolbar>
+    <span>My Application</span>
+  </mat-toolbar>
+</p>
+
+<p>
+  <mat-toolbar>
+   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+   <mat-icon>share</mat-icon>
+ </button>
+</mat-toolbar>
+</p> -->
+
+<p>
+  <mat-toolbar color="primary">
+    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button> -->
+    <span>Employee Records CRUD App</span>
+    <span class="example-spacer"></span>
+    <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button> -->
+    <button mat-raised-button (click)="openAddEditEmployeeForm()">Add Employee</button>
+  </mat-toolbar>
+</p>
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let row"> {{row._id}} </td>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="designation">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Designation </th>
+      <td mat-cell *matCellDef="let row"> {{row.designation}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="skill">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Skill(Rating) </th>
+      <td mat-cell *matCellDef="let row">
+        <ng-container *ngFor="let techstack of row.techstack">
+          {{techstack.skill}}({{techstack.rate}}),
+        </ng-container></td>
+
+    </ng-container>
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+      <td mat-cell *matCellDef="let row"> 
+        <button mat-icon-button color="primary" (click)="openEditForm(row)">
+          <mat-icon>edit</mat-icon>
+        </button> 
+        <button mat-icon-button  color="warn" (click)="deleteEmployee(row._id)">
+          <mat-icon>delete</mat-icon>
+        </button> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
+<!-- <p>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row>
+      <span>Second Line</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p> -->
